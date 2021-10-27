@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using DotnetCoreAssignment.Models;
 using DotnetCoreAssignment.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -31,12 +32,15 @@ namespace DotnetCoreAssignment.Controllers
             ProductModel foundProduct = products.GetProductById(id);
             return View(foundProduct);
         }
+        [HttpGet]
+        [Authorize]
         public IActionResult Edit(int id)
         {
             ProductsDb products = new ProductsDb();
             ProductModel foundProduct = products.GetProductById(id);
             return View("Edit", foundProduct);
         }
+        [Authorize]
         public IActionResult Delete(int id)
         {
             ProductsDb products = new ProductsDb();
@@ -44,16 +48,22 @@ namespace DotnetCoreAssignment.Controllers
             products.Delete(product);
             return View("Index", products.GetAllProducts());
         }
+        [HttpPost]
+        [Authorize]
         public IActionResult ProcessEdit(ProductModel product)
         {
             ProductsDb products = new ProductsDb();
             products.Update(product);
             return View("Index", products.GetAllProducts());
         }
+        [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             return View("Create");
         }
+        [HttpPost]
+        [Authorize]
         public IActionResult ProcessCreate(ProductModel product)
         {
             ProductsDb products = new ProductsDb();

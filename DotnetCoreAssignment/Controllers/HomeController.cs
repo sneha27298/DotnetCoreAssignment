@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DotnetCoreAssignment.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -20,7 +21,6 @@ namespace DotnetCoreAssignment.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Message = "Security";
             return View();
         }
 

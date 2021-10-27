@@ -37,9 +37,11 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+
+                <a href="/product/Edit/@item.Id">Edit</a>
+                <a href="/product/ShowDetails/@item.Id">Details</a>
+                <a href="/product/Delete/@item.Id">Delete</a>
+
             </td>
         </tr>
 }

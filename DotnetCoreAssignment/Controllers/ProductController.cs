@@ -25,6 +25,42 @@ namespace DotnetCoreAssignment.Controllers
             return View("index", productList);
         }
 
+        public IActionResult ShowDetails(int id)
+        {
+            ProductsDb products = new ProductsDb();
+            ProductModel foundProduct = products.GetProductById(id);
+            return View(foundProduct);
+        }
+        public IActionResult Edit(int id)
+        {
+            ProductsDb products = new ProductsDb();
+            ProductModel foundProduct = products.GetProductById(id);
+            return View("Edit", foundProduct);
+        }
+        public IActionResult Delete(int id)
+        {
+            ProductsDb products = new ProductsDb();
+            ProductModel product = products.GetProductById(id);
+            products.Delete(product);
+            return View("Index", products.GetAllProducts());
+        }
+        public IActionResult ProcessEdit(ProductModel product)
+        {
+            ProductsDb products = new ProductsDb();
+            products.Update(product);
+            return View("Index", products.GetAllProducts());
+        }
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+        public IActionResult ProcessCreate(ProductModel product)
+        {
+            ProductsDb products = new ProductsDb();
+            products.Insert(product);
+            return View("Index", products.GetAllProducts());
+        }
+
         public IActionResult SearchForm()
         {
             return View();

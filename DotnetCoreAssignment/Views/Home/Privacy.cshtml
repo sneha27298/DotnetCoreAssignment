@@ -1,7 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "About Us";
+    ViewData["Title1"] = "Contact Us";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
-<p>@ViewBag.Message</p>
+<h4>@ViewBag.Slogan</h4>
+
+<table>
+    <tbody>
+        <tr>
+            <td><img src="https://media.istockphoto.com/photos/groceries-picture-id171302954?k=20&m=171302954&s=612x612&w=0&h=kDpFXA8IoG22Uxog3YUmWvzBRzwyibd6r4S2v5z-Mno=" style="height:300px;"/></td>
+            <td><h6>An online grocer is either a brick-and-mortar supermarket or grocery store that allows online ordering, or a standalone e-commerce service that includes grocery items. There is usually a delivery charge for this service. ... The online ordering is done through e-commerce websites or mobile apps.</h6></td>
+        </tr>
+    </tbody>
+</table>
+<hr/>
+<h1>@ViewData["Title1"]</h1>
+<h5>@ViewBag.Slogan1</h5>
+<br />
+<p>@ViewBag.Loc</p>
+<p>@ViewBag.Loc1</p>
+<br />
+<p> Contact : @ViewBag.Phone</p>
+

@@ -27,6 +27,11 @@ namespace DotnetCoreAssignment.Controllers
 
         public IActionResult Privacy()
         {
+            ViewBag.Slogan = "We're here to serve only the best products for you...";
+            ViewBag.Slogan1 = "Search no more!, Contact Us..";
+            ViewBag.Loc = "Grocery Store, #1111/a, Random Road";
+            ViewBag.Loc1 = "Mysore, Karnataka - 570001";
+            ViewBag.Phone = "9876543210";
             return View();
         }
 
@@ -34,13 +39,6 @@ namespace DotnetCoreAssignment.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        public IActionResult SearchResults(string searchTerm)
-        {
-            ProductsDb products = new ProductsDb();
-
-            List<ProductModel> productList = products.SearchProducts(searchTerm);
-            return View("index", productList);
         }
     }
 }

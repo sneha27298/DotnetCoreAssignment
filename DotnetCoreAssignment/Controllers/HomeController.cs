@@ -1,4 +1,5 @@
 ﻿using DotnetCoreAssignment.Models;
+using DotnetCoreAssignment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -33,6 +34,13 @@ namespace DotnetCoreAssignment.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult SearchResults(string searchTerm)
+        {
+            ProductsDb products = new ProductsDb();
+
+            List<ProductModel> productList = products.SearchProducts(searchTerm);
+            return View("index", productList);
         }
     }
 }
